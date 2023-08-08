@@ -1,0 +1,50 @@
+:root {
+	--primary: #1842ff;
+	--secondary: #1b1c22;
+	--accent: #ccb638;
+	--background: #0c0d13;
+	--text: #fbfbfe;
+	color: var(--text);
+	font-family: "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+body {
+	background-color: var(--background);
+	margin: 0;
+}
+
+header {
+	background-color: var(--secondary);
+	padding: 2rem;
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+.contentWrapper {
+	margin: 1rem;
+}
+
+/* The chevron arrow on the select element is too right, but it's too much work to fix */
+select, input, button {
+	width: 30rem;
+	border: none;
+	box-sizing: border-box;
+	background-color: var(--secondary);
+	color: var(--text);
+	padding: 10px;
+	border-radius: 5px;
+	margin-bottom: 0.5rem;
+}
+
+th {
+	width: 12rem;
+}
+
+button#calculate {
+	background-color: var(--accent);
+	color: var(--background);
+}
+
+#form {
+	margin-bottom: 2rem;
+}

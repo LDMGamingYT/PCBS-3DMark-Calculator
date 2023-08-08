@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="windows-1252">
+    <title>PCBS 3DMark Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/5a740087a2.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <datalist id="cpuList"></datalist>
+    <datalist id="gpuList"></datalist>
+
+    <header>
+        3DMark Score Calculator
+    </header>
+
+    <div class="contentWrapper">
+        <form id="form">
+            <table>
+                <th></th>
+                <tr>
+                    <td><i class="fa-solid fa-microchip"></i> CPU</td>
+                    <td>
+                        <input name="cpu" list="cpuList">
+                    </td>
+                </tr>
+                <tr>
+                    <td><i class="fa-solid fa-memory"></i> RAM Speed</td>
+                    <td>
+                        <select name="ramSpeed">
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><i class="fa-solid fa-memory"></i> RAM Channels</td>
+                    <td>
+                        <select name="ramChannels">
+                            <option value="1">1: Single-channel</option>
+                            <option value="2">2: Dual-channel</option>
+                            <option value="3">3: Triple-channel</option>
+                            <option value="4">4: Quad-channel</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><i class="fa-solid fa-display"></i> GPU</td>
+                    <td><input name="gpu" list="gpuList"></td>
+                </tr>
+                <tr>
+                    <td><i class="fa-solid fa-display"></i> # GPUs</td>
+                    <td>
+                        <select name="gpuCount">
+                            <option value="1" selected>1: Single-GPU</option>
+                            <option value="2">2: Dual-GPUs</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button type="button" id="calculate" onclick="calculateScore()">Calculate</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+        <table>
+            <!-- score overview, completely replace this garbage 1998 code -->
+            <section>
+                <th></th>
+                <tr>
+                    <td style="font-weight:bold; font-size:20px">3DMark Score</td>
+                    <td style="font-weight:bold; font-size:20px" id="systemScore"></td>
+                </tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr>
+                    <td><i class="fa-solid fa-microchip"></i> CPU Score</td>
+                    <td id="cpuScore"></td>
+                </tr>
+                <tr>
+                    <td><i class="fa-solid fa-display"></i> GPU Score</td>
+                    <td id="gpuScore"></td>
+                </tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr>
+                <tr>
+                    <td><i class="fa-solid fa-tags"></i> CPU Price New</td>
+                    <td id="cpuPriceNew"></td>
+                </tr>
+                <tr>
+                    <td><i class="fa-solid fa-tag"></i> CPU Price Used</td>
+                    <td id="cpuPriceUsed"></td>
+                </tr>
+                <tr>
+                    <td><i class="fa-solid fa-tags"></i> GPU(s) Price New</td>
+                    <td id="gpuPriceNew"></td>
+                </tr>
+                <tr>
+                    <td><i class="fa-solid fa-tag"></i> GPU(s) Price Used</td>
+                    <td id="gpuPriceUsed"></td>
+                </tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr>
+                    <td><i class="fa-regular fa-snowflake"></i> GPU Cooling</td>
+                    <td id="gpuCooling"></td>
+                </tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr>
+                    <td><i class="fa-solid fa-bolt"></i> System Watts</td>
+                    <td id="systemWatts"></td>
+                </tr>
+            </section>
+            <!-- you made it to the end! 🥳 -->
+        </table>
+    </div>
+</body>
+
+</html>
