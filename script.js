@@ -181,6 +181,15 @@ function cpuSupportsGpu(cpu, gpu, parts) {
 	}
 }
 
+function showAlert(message) {
+	var alertBox = document.getElementById("alertBox");
+	document.getElementById("alertMessage").innerHTML = message;
+	alertBox.setAttribute("data-active", "true");
+	setTimeout(function() {
+		alertBox.setAttribute("data-active", "false")
+	}, 2500);
+}
+
 function verifyParts(cpu, ramChannels, gpu, gpuCount, parts) {
 	var alertMessage = "";
 	if (!parts.cpus[cpu])
@@ -192,10 +201,10 @@ function verifyParts(cpu, ramChannels, gpu, gpuCount, parts) {
 	else if (!cpuSupportsGpu(cpu, gpu, parts))
 		alertMessage = "CPU does not support GPU.";
 	else if (gpuCount == "2" && parts.gpus[gpu].multiGPU == null)
-		alertMessage = "Selected GPU does not support multi-GPU.";
+		alertMessage = "Selected GPU does not support SLI/CrossFire.";
 	
 	if (alertMessage != "") {
-		alert(alertMessage);
+		showAlert(alertMessage);
 		return false;
 	}
 

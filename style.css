@@ -2,6 +2,7 @@
 	--primary: #1842ff;
 	--secondary: #1b1c22;
 	--accent: #ccb638;
+	--error: #d6342e;
 	--background: #0c0d13;
 	--text: #fbfbfe;
 	color: var(--text);
@@ -18,6 +19,27 @@ header {
 	padding: 2rem;
 	font-size: 2rem;
 	font-weight: bold;
+	z-index: 1;
+}
+
+/* TODO: The alert box is behind everything, including the text, causing it to hide behind the content. Fix this. */
+#alertBox {
+	background-color: var(--error);
+	padding: 1rem;
+	padding-left: 2rem;
+	position: absolute;
+	z-index: -1;
+	left: 0;
+	right: 0;
+	transition: 500ms ease-in-out;
+}
+
+#alertBox[data-active="true"] {
+	transform: translateY(0rem);
+}
+
+#alertBox[data-active="false"] {
+	transform: translateY(-4rem);
 }
 
 .contentWrapper {
