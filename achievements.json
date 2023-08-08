@@ -1,0 +1,11 @@
+{
+	"pcbs2" : [
+		{
+			"title": "Bench Press",
+			"description": "Get a Timespy score of 30,000+",
+			"id": 1,
+			"xp": 30,
+			"rarity": 9
+		}
+	]
+}

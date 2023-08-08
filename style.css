@@ -1,10 +1,12 @@
 :root {
-	--primary: #1842ff;
-	--secondary: #1b1c22;
+	--primary: #1b1c22;
+	--secondary: #25262e;
 	--accent: #ccb638;
 	--error: #d6342e;
 	--background: #0c0d13;
 	--text: #fbfbfe;
+	--gray: #918f8f;
+	--rounding: 10px;
 	color: var(--text);
 	font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
@@ -15,11 +17,26 @@ body {
 }
 
 header {
-	background-color: var(--secondary);
+	background-color: var(--primary);
 	padding: 2rem;
+	z-index: 1;
 	font-size: 2rem;
 	font-weight: bold;
-	z-index: 1;
+}
+
+.menuItems > a {
+	font-size: 14px;
+	font-weight: normal;
+	text-decoration: none;
+	color: var(--text);
+	background-color: var(--secondary);
+	padding: 0.5rem;
+	border-radius: var(--rounding);
+	transition: 100ms ease-in-out;
+}
+
+.menuItems > a:hover {
+	font-size: 15px;
 }
 
 /* TODO: The alert box is behind everything, including the text, causing it to hide behind the content. Fix this. */
@@ -46,15 +63,21 @@ header {
 	margin: 1rem;
 }
 
+#achievementWrapper {
+	margin: 1rem;
+	margin-left: 5rem;
+	margin-right: 5rem;
+}
+
 /* The chevron arrow on the select element is too right, but it's too much work to fix */
 select, input, button {
 	width: 30rem;
 	border: none;
 	box-sizing: border-box;
-	background-color: var(--secondary);
+	background-color: var(--primary);
 	color: var(--text);
 	padding: 10px;
-	border-radius: 5px;
+	border-radius: var(--rounding);
 	margin-bottom: 0.5rem;
 }
 
@@ -69,4 +92,55 @@ button#calculate {
 
 #form {
 	margin-bottom: 2rem;
+}
+
+.achievement {
+	background-color: var(--primary);
+	border-radius: var(--rounding);
+	padding: 1rem;
+	display: flex;
+	overflow: hidden;
+	margin-top: 1rem;
+
+	transform: scale(100%);
+	transition: 50ms ease-in-out;
+}
+
+.achievement:hover {
+	transform: scale(101%);
+}
+
+.achievement-icon {
+	aspect-ratio: 1;
+	width: 7rem;
+	margin-right: 1rem;
+}
+
+.achievement-title {
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+.achievement-description {
+	margin-bottom: 1rem;
+}
+
+.achievement > div {
+	flex: 1;
+}
+
+.gray {
+	color: var(--gray);
+}
+
+.bronze {
+	color: #CD7F32;
+}
+
+.silver {
+	color: #C0C0C0;
+}
+
+.gold {
+	color: #FFD700;
 }

@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="windows-1252">
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PCBS 3DMark Calculator</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="3dmark_calculator.js"></script>
     <script src="https://kit.fontawesome.com/5a740087a2.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="3DMark Icon.png" type="image/x-icon">
 </head>
-
 <body>
     <datalist id="cpuList"></datalist>
     <datalist id="gpuList"></datalist>
 
     <header>
+        <i class="fa-solid fa-chart-line"></i>
         3DMark Score Calculator
+        <div class="menuItems">
+            <a href="./achievement-guide.html"><i class="fa-solid fa-trophy"></i> Achievements</a>
+        </div>
     </header>
 
     <div id="alertBox" data-active="false"><i class="fa-solid fa-triangle-exclamation"></i> <span id="alertMessage"></span></div>
@@ -152,5 +155,4 @@
         </table>
     </div>
 </body>
-
 </html>
