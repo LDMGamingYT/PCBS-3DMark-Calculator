@@ -39,7 +39,12 @@ header {
 	font-size: 15px;
 }
 
-/* TODO: The alert box is behind everything, including the text, causing it to hide behind the content. Fix this. */
+.contentWrapper {
+	margin: 1rem;
+	position: absolute;
+	z-index: -2;
+}
+
 #alertBox {
 	background-color: var(--error);
 	padding: 1rem;
@@ -57,10 +62,6 @@ header {
 
 #alertBox[data-active="false"] {
 	transform: translateY(-4rem);
-}
-
-.contentWrapper {
-	margin: 1rem;
 }
 
 #achievementWrapper {
