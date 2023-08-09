@@ -155,3 +155,22 @@ button.dangerous {
 .gold {
 	color: #FFD700;
 }
+
+.loading-icon {
+	color: var(--secondary);
+	font-size: 20rem;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.loading-info {
+	color: var(--text);
+	font-weight: bold;
+	font-size: 2rem;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
