@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>PCBS Achivement Guide</title>
     <link rel="stylesheet" href="style.css">
+	<script src="achievement_guide.js"></script>
     <script src="developer_mode.js"></script>
 	<script src="global.js"></script>
     <script src="https://kit.fontawesome.com/5a740087a2.js" crossorigin="anonymous"></script>
@@ -23,10 +24,16 @@
     <div id="alertBox" data-active="false"><i class="fa-solid fa-triangle-exclamation"></i> <span id="alertMessage"></span></div>
 
 	<div class="contentWrapper">
+		<h2>Alerts</h2>
+		<button onclick="showAlert('Test alert')">Show test alert</button>
+
 		<h2>Local Storage</h2>
 		<button onclick="del()">Delete local storage</button>
 		<button onclick="add()">Mark random achievement as completed</button>
 		<button onclick="prn()">Print local storage to console</button>
+
+		<h2>Uncategorized</h2>
+		<div id="buttonPanel"></div>
 	</div>
 </body>
 </html>

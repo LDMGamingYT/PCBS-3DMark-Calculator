@@ -97,6 +97,10 @@ button#calculate {
 	color: var(--background);
 }
 
+button.dangerous {
+	background-color: var(--error);
+}
+
 #form {
 	margin-bottom: 2rem;
 }
