@@ -8,8 +8,8 @@ async function fetchAchievementsList() {
 			});
 }
 
-async function createAchievement() {
-	const parent = document.getElementById("achievementWrapper");
+async function createAchievement(group) {
+	const parent = document.getElementById(`${group}-achievements`);
 
 	const card = document.createElement("div");
 	card.className = "achievement";
@@ -98,7 +98,7 @@ async function updateAchievements() {
 	promisedAchievements.then(achievements => {
 		var i = 0;
 		achievements.pcbs2.forEach(achievement => {
-			createAchievement();
+			createAchievement("pcbs2");
 			loadAchievement(i, achievement);
 			i++;
 		});
