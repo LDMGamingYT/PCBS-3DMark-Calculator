@@ -1,5 +1,5 @@
 async function fetchAchievementsList() {
-	return fetch("./achievements.json")
+	return fetch("./assets/data/achievements.json")
 			.then(function(data) {
 				return data.json();
 			});

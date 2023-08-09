@@ -1,6 +1,6 @@
 // Fetches "parts.json" and returns it's contents resolved in a promise
 function fetchPartsList() {
-	return fetch("./parts.json")
+	return fetch("./assets/data/parts.json")
 			.then(function(data) {
 				return data.json();
 			});
