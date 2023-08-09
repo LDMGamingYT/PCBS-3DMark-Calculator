@@ -91,6 +91,13 @@ function completeAchievement(id) {
     window.localStorage.completed_achievements = JSON.stringify(completedAchievements);
 }
 
+function uncompleteAchievement(id) {
+    if (window.localStorage.completed_achievements == undefined) window.localStorage.completed_achievements = "[]"
+    let completedAchievements = JSON.parse(window.localStorage.completed_achievements);
+    completedAchievements.pop(id);
+    window.localStorage.completed_achievements = JSON.stringify(completedAchievements);
+}
+
 window.onload = function() {
 	updateAchievements();
 };
