@@ -97,9 +97,6 @@ const promisedAchievements = fetchAchievementsList();
 
 function recalcCompletion(group) {
 	promisedAchievements.then(achievements => {
-		const completionCounter = document.getElementById(`${group}-completion`);
-		const xpCounter = document.getElementById(`${group}-xp`);
-
 		var xp = 0;
 		var i = 1;
 
@@ -110,8 +107,10 @@ function recalcCompletion(group) {
 			i++;
 		});
 
-		xpCounter.innerText = xp;
-		completionCounter.innerText = Math.round(getCompletedAchievements().length / achievements[group].length * 100);
+		document.getElementById(`${group}-xp`).innerText = xp;
+		document.getElementById(`${group}-completion`).innerText = Math.round(getCompletedAchievements().length / achievements[group].length * 100);
+		document.getElementById(`${group}-total`).innerText = achievements[group].length;
+		document.getElementById(`${group}-completed`).innerText = getCompletedAchievements().length;
 	});
 }
 
