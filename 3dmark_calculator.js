@@ -184,11 +184,11 @@ function cpuSupportsGpu(cpu, gpu, parts) {
 function verifyParts(cpu, ramChannels, gpu, gpuCount, parts) {
 	var alertMessage = "";
 	if (!parts.cpus[cpu])
-		alertMessage = "CPU not found.";
+		alertMessage = "CPU does not exist.";
 	else if (ramChannels > parts.cpus[cpu].maxMemoryChannels)
-		alertMessage = "CPU only supports " + parts.cpus[cpu].maxMemoryChannels + " RAM Channels.";
+		alertMessage = "CPU only supports " + parts.cpus[cpu].maxMemoryChannels + " RAM channels.";
 	else if (!parts.gpus[gpu])
-		alertMessage = "GPU not found.";
+		alertMessage = "GPU does not exist.";
 	else if (!cpuSupportsGpu(cpu, gpu, parts))
 		alertMessage = "CPU does not support GPU.";
 	else if (gpuCount == "2" && parts.gpus[gpu].multiGPU == null)
