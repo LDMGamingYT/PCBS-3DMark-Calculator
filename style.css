@@ -79,6 +79,12 @@ select, input, button {
 	padding: 10px;
 	border-radius: var(--rounding);
 	margin-bottom: 0.5rem;
+	transform: scale(100%);
+	transition: 50ms ease-in-out;
+}
+
+button:hover {
+	transform: scale(103%);
 }
 
 th {

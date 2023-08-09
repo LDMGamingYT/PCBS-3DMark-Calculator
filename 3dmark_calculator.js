@@ -181,15 +181,6 @@ function cpuSupportsGpu(cpu, gpu, parts) {
 	}
 }
 
-function showAlert(message) {
-	var alertBox = document.getElementById("alertBox");
-	document.getElementById("alertMessage").innerHTML = message;
-	alertBox.setAttribute("data-active", "true");
-	setTimeout(function() {
-		alertBox.setAttribute("data-active", "false")
-	}, 2500);
-}
-
 function verifyParts(cpu, ramChannels, gpu, gpuCount, parts) {
 	var alertMessage = "";
 	if (!parts.cpus[cpu])

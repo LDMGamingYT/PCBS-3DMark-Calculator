@@ -84,6 +84,13 @@ async function updateAchievements() {
 	});
 }
 
+function completeAchievement(id) {
+    if (window.localStorage.completed_achievements == undefined) window.localStorage.completed_achievements = "[]"
+    let completedAchievements = JSON.parse(window.localStorage.completed_achievements);
+    completedAchievements.push(id);
+    window.localStorage.completed_achievements = JSON.stringify(completedAchievements);
+}
+
 window.onload = function() {
 	updateAchievements();
 };
