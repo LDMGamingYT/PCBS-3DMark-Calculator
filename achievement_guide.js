@@ -40,6 +40,7 @@ async function createAchievement(group) {
 
 	const checkbox = document.createElement("button");
 	checkbox.className = "achievement-completed";
+	checkbox.setAttribute("group", group);
 
 	const checkboxIcon = document.createElement("i");
 	checkboxIcon.className = "fa-regular fa-square achievement-completed-icon";
@@ -68,9 +69,9 @@ function calcRewardColor(xp) {
 	else return "gold";
 }
 
-function isAchievementComplete(id) {
+function getCompletedAchievements() {
 	if (window.localStorage.completed_achievements == undefined) window.localStorage.completed_achievements = "[]"
-	return JSON.parse(window.localStorage.completed_achievements).includes(id);
+	return JSON.parse(window.localStorage.completed_achievements)
 }
 
 async function loadAchievement(cardIndex, achievement) {
@@ -82,7 +83,7 @@ async function loadAchievement(cardIndex, achievement) {
 	document.getElementsByClassName("achievement-rarity")[cardIndex].innerHTML = `${achievement.rarity}% of player have this achievement`;
 
 	const _checkbox = document.getElementsByClassName("achievement-completed")[cardIndex];
-	const _complete = isAchievementComplete(achievement.id);
+	const _complete = getCompletedAchievements().includes(achievement.id);
 	_checkbox.id = `achievement-${achievement.id}`;
 	_checkbox.setAttribute("onclick", `onAchievementCheckboxClicked(${achievement.id})`);
 	_checkbox.setAttribute("data-checked", _complete);
@@ -94,11 +95,31 @@ async function loadAchievement(cardIndex, achievement) {
 
 const promisedAchievements = fetchAchievementsList();
 
-async function updateAchievements() {
+function recalcCompletion(group) {
+	promisedAchievements.then(achievements => {
+		const completionCounter = document.getElementById(`${group}-completion`);
+		const xpCounter = document.getElementById(`${group}-xp`);
+
+		var xp = 0;
+		var i = 1;
+
+		achievements[group].forEach(achievement => {
+			if (getCompletedAchievements().includes(i)) {
+				xp += achievement.xp;
+			}
+			i++;
+		});
+
+		xpCounter.innerText = xp;
+		completionCounter.innerText = Math.round(getCompletedAchievements().length / achievements[group].length * 100);
+	});
+}
+
+async function updateAchievements(group) {
 	promisedAchievements.then(achievements => {
 		var i = 0;
-		achievements.pcbs2.forEach(achievement => {
-			createAchievement("pcbs2");
+		achievements[group].forEach(achievement => {
+			createAchievement(group);
 			loadAchievement(i, achievement);
 			i++;
 		});
@@ -140,8 +161,11 @@ function onAchievementCheckboxClicked(id) {
 		icon.className = checkedIcon;
 		checkbox.setAttribute("data-checked", "true");
 	}
+
+	recalcCompletion(checkbox.getAttribute("group"));
 }
 
 window.onload = function() {
-	updateAchievements();
+	updateAchievements("pcbs2");
+	recalcCompletion("pcbs2");
 };
