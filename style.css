@@ -64,6 +64,18 @@ header {
 	transform: translateY(-4rem);
 }
 
+.score-input-wrapper {
+	display: grid;
+	grid-template-columns: 12rem 1fr;
+	align-items: center;
+}
+
+.score-output-wrapper {
+	display: grid;
+	grid-template-columns: 12rem 1fr;
+	grid-template-rows: 2rem 1fr 2.5rem repeat(3, 1fr) 2.5rem 2.5rem;
+}
+
 #achievementWrapper {
 	margin: 1rem;
 	margin-left: 5rem;
@@ -88,13 +100,10 @@ button:hover {
 	transform: scale(103%);
 }
 
-th {
-	width: 12rem;
-}
-
 button#calculate {
 	background-color: var(--accent);
 	color: var(--background);
+	grid-column-start: 2;
 }
 
 button.dangerous {
