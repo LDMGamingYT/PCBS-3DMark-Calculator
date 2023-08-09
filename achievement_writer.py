@@ -4,16 +4,14 @@ def main():
     while True:
         title = input("Achievement title? ")
         description = input("Description? ")
-        _id = input("Unique ID? ")
-        xp = input("Awarded XP? ")
-        rarity = input("How many players unlocked it? ")
+        xp = input("Awarded XP? ").replace(" XP", "")
+        rarity = input("How many players unlocked it? ").replace("% of players unlock", "")
         
         achievement = {
             "title": title,
             "description": description,
-            "id": int(_id),
             "xp": int(xp),
-            "rarity": int(rarity)
+            "rarity": float(rarity)
         }
         
         add_achievement(achievement)
@@ -29,6 +27,13 @@ def add_achievement(achievement):
     if category not in data:
         data[category] = []
     
+    if data[category]:
+        existing_ids = [entry["id"] for entry in data[category]]
+        new_id = max(existing_ids) + 1
+    else:
+        new_id = 1
+    
+    achievement["id"] = new_id
     data[category].append(achievement)
     
     with open('achievements.json', 'w') as file:

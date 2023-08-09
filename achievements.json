@@ -1,11 +1,417 @@
 {
-	"pcbs2" : [
-		{
-			"title": "Bench Press",
-			"description": "Get a Timespy score of 30,000+",
-			"id": 1,
-			"xp": 30,
-			"rarity": 9
-		}
-	]
+    "pcbs2": [
+        {
+            "title": "Bench Press",
+            "description": "Get a Timespy score of 30,000+",
+            "xp": 30,
+            "rarity": 9.0,
+            "id": 1
+        },
+        {
+            "title": "Bench Warmer",
+            "description": "Get a Timespy score of 20,000+",
+            "xp": 15,
+            "rarity": 22.0,
+            "id": 2
+        },
+        {
+            "title": "Big Shot",
+            "description": "$1,000,000 in the bank",
+            "xp": 100,
+            "rarity": 3.0,
+            "id": 3
+        },
+        {
+            "title": "Bootstrapping",
+            "description": "$1,000 in the bank",
+            "xp": 5,
+            "rarity": 68.0,
+            "id": 4
+        },
+        {
+            "title": "Broken to Smokin'",
+            "description": "Complete a repair job and add some customisation to it",
+            "xp": 5,
+            "rarity": 23.0,
+            "id": 5
+        },
+        {
+            "title": "Chill Out",
+            "description": "Watercool a GPU",
+            "xp": 5,
+            "rarity": 58.0,
+            "id": 6
+        },
+        {
+            "title": "Cinematic",
+            "description": "Run Cinebench 5 times",
+            "xp": 5,
+            "rarity": 21.0,
+            "id": 7
+        },
+        {
+            "title": "Cowboy",
+            "description": "Score one star on a job",
+            "xp": 5,
+            "rarity": 19.0,
+            "id": 8
+        },
+        {
+            "title": "Dream Theme",
+            "description": "Apply a theme to a PC for the first time",
+            "xp": 5,
+            "rarity": 40.0,
+            "id": 9
+        },
+        {
+            "title": "Elite Technician",
+            "description": "Reach Level 20",
+            "xp": 50,
+            "rarity": 5.0,
+            "id": 10
+        },
+        {
+            "title": "Export Expert",
+            "description": "Export 25 PCs",
+            "xp": 25,
+            "rarity": 0.2,
+            "id": 11
+        },
+        {
+            "title": "Foot in the Door",
+            "description": "Sell 10 PCs",
+            "xp": 5,
+            "rarity": 32.0,
+            "id": 12
+        },
+        {
+            "title": "Forgetful Shopper",
+            "description": "End the day with something still in the checkout",
+            "xp": 5,
+            "rarity": 13.0,
+            "id": 13
+        },
+        {
+            "title": "Full Throttle",
+            "description": "Build a Throttled PC",
+            "xp": 5,
+            "rarity": 31.0,
+            "id": 14
+        },
+        {
+            "title": "Get Stuck In",
+            "description": "Apply a sticker for the first time",
+            "xp": 5,
+            "rarity": 60.0,
+            "id": 15
+        },
+        {
+            "title": "Gift of the Gab",
+            "description": "Sell 20 PCs",
+            "xp": 15,
+            "rarity": 21.0,
+            "id": 16
+        },
+        {
+            "title": "Going Places",
+            "description": "$ 50,000 in the bank",
+            "xp": 50,
+            "rarity": 13.0,
+            "id": 17
+        },
+        {
+            "title": "Grand Designs",
+            "description": "Complete your first workshop customisation",
+            "xp": 5,
+            "rarity": 55.0,
+            "id": 18
+        },
+        {
+            "title": "Hot Stuff",
+            "description": "Use the thermal imaging tool",
+            "xp": 5,
+            "rarity": 51.0,
+            "id": 19
+        },
+        {
+            "title": "Just Like Old Times",
+            "description": "Decorate your workshop with all the PCBS 1 themed items",
+            "xp": 5,
+            "rarity": 2.0,
+            "id": 20
+        },
+        {
+            "title": "Keep 'Em Coming",
+            "description": "Import 5 PCs",
+            "xp": 5,
+            "rarity": 0.3,
+            "id": 21
+        },
+        {
+            "title": "Legendary Technician",
+            "description": "Reach Level 30",
+            "xp": 100,
+            "rarity": 1.0,
+            "id": 22
+        },
+        {
+            "title": "Local Hero",
+            "description": "Score 5 stars for 5 jobs in a row",
+            "xp": 15,
+            "rarity": 24.0,
+            "id": 23
+        },
+        {
+            "title": "MOAR RGB",
+            "description": "Build a PC with 10 RGB parts and have it boot",
+            "xp": 5,
+            "rarity": 47.0,
+            "id": 24
+        },
+        {
+            "title": "Making It Mine",
+            "description": "In Career Mode, customize your office PC",
+            "xp": 5,
+            "rarity": 7.0,
+            "id": 25
+        },
+        {
+            "title": "Matching Set",
+            "description": "Deck out a workshop with a complete set of a theme",
+            "xp": 5,
+            "rarity": 8.0,
+            "id": 26
+        },
+        {
+            "title": "Mix and Match",
+            "description": "Deck out a workshop with parts from 3 themes",
+            "xp": 5,
+            "rarity": 32.0,
+            "id": 27
+        },
+        {
+            "title": "On the Bench",
+            "description": "Get a Timespy score of 10,000+",
+            "xp": 5,
+            "rarity": 37.0,
+            "id": 28
+        },
+        {
+            "title": "On the Job",
+            "description": "Complete 10 jobs",
+            "xp": 10,
+            "rarity": 62.0,
+            "id": 29
+        },
+        {
+            "title": "On the Ladder",
+            "description": "$25,000 in the bank",
+            "xp": 25,
+            "rarity": 20.0,
+            "id": 30
+        },
+        {
+            "title": "PC OG",
+            "description": "Complete 250 jobs",
+            "xp": 100,
+            "rarity": 0.7,
+            "id": 31
+        },
+        {
+            "title": "Paste Not, Want Not",
+            "description": "Use way too much thermal paste",
+            "xp": 5,
+            "rarity": 15.0,
+            "id": 32
+        },
+        {
+            "title": "Pimp My Rig",
+            "description": "Customize your first PC",
+            "xp": 5,
+            "rarity": 27.0,
+            "id": 33
+        },
+        {
+            "title": "Procrastinator",
+            "description": "Eat 50 fruits in Wormy",
+            "xp": 5,
+            "rarity": 0.9,
+            "id": 34
+        },
+        {
+            "title": "Recycler",
+            "description": "Buy 10 broken PCs from Spares'N'Repairs",
+            "xp": 5,
+            "rarity": 33.0,
+            "id": 35
+        },
+        {
+            "title": "Repair Master",
+            "description": "Reach Level 10",
+            "xp": 25,
+            "rarity": 28.0,
+            "id": 36
+        },
+        {
+            "title": "Room for Expansion",
+            "description": "Unlock the physical shop",
+            "xp": 5,
+            "rarity": 60.0,
+            "id": 37
+        },
+        {
+            "title": "Sales Pitch",
+            "description": "Sell a PC in the shop for the first time",
+            "xp": 5,
+            "rarity": 58.0,
+            "id": 38
+        },
+        {
+            "title": "Salesperson of the Month",
+            "description": "Sell 50 PCs",
+            "xp": 25,
+            "rarity": 7.0,
+            "id": 39
+        },
+        {
+            "title": "Salvage Squad",
+            "description": "Buy 20 broken PCs from Spares'N'Repairs",
+            "xp": 5,
+            "rarity": 21.0,
+            "id": 40
+        },
+        {
+            "title": "Shine On",
+            "description": "Use the Rainbow effect",
+            "xp": 5,
+            "rarity": 63.0,
+            "id": 41
+        },
+        {
+            "title": "Ship It",
+            "description": "Export your first PC",
+            "xp": 5,
+            "rarity": 6.0,
+            "id": 42
+        },
+        {
+            "title": "Ship It Harder",
+            "description": "Export 10 PCs",
+            "xp": 10,
+            "rarity": 0.3,
+            "id": 43
+        },
+        {
+            "title": "Showpiece",
+            "description": "Build a $15k PC and have it boot",
+            "xp": 5,
+            "rarity": 10.0,
+            "id": 44
+        },
+        {
+            "title": "Slap Happy",
+            "description": "Put 10 stickers on the same PC case",
+            "xp": 5,
+            "rarity": 19.0,
+            "id": 45
+        },
+        {
+            "title": "Stabiliser",
+            "description": "Run OCCT 10 times",
+            "xp": 5,
+            "rarity": 16.0,
+            "id": 46
+        },
+        {
+            "title": "Stick With It",
+            "description": "Add 50 stickers to PC cases",
+            "xp": 25,
+            "rarity": 20.0,
+            "id": 47
+        },
+        {
+            "title": "Supercool",
+            "description": "Watercool a GPU, a Motherboard and a stick of RAM",
+            "xp": 15,
+            "rarity": 17.0,
+            "id": 48
+        },
+        {
+            "title": "Tech Vet",
+            "description": "Complete 100 jobs",
+            "xp": 75,
+            "rarity": 7.0,
+            "id": 49
+        },
+        {
+            "title": "Thanks Jeff",
+            "description": "Have 20 items delivered on the same day",
+            "xp": 5,
+            "rarity": 22.0,
+            "id": 50
+        },
+        {
+            "title": "The Customer is King",
+            "description": "Score 5 stars on a job",
+            "xp": 10,
+            "rarity": 39.0,
+            "id": 51
+        },
+        {
+            "title": "The More the Merrier",
+            "description": "Sell a Multi GPU PC",
+            "xp": 5,
+            "rarity": 36.0,
+            "id": 52
+        },
+        {
+            "title": "This One Goes to 11",
+            "description": "Cause BSOD by overclocking a GPU",
+            "xp": 5,
+            "rarity": 16.0,
+            "id": 53
+        },
+        {
+            "title": "Tinker",
+            "description": "Reach Level 5",
+            "xp": 5,
+            "rarity": 54.0,
+            "id": 54
+        },
+        {
+            "title": "Unlimited Power",
+            "description": "Build a PC with 4 GPUs",
+            "xp": 15,
+            "rarity": 4.0,
+            "id": 55
+        },
+        {
+            "title": "Variations on a Theme",
+            "description": "Add 10 themes to PC cases",
+            "xp": 10,
+            "rarity": 19.0,
+            "id": 56
+        },
+        {
+            "title": "Very Imported PC",
+            "description": "Import your first PC",
+            "xp": 5,
+            "rarity": 32.0,
+            "id": 57
+        },
+        {
+            "title": "Workaholic",
+            "description": "Complete 50 jobs",
+            "xp": 50,
+            "rarity": 23.0,
+            "id": 58
+        },
+        {
+            "title": "Working Hard",
+            "description": "Complete 30 jobs",
+            "xp": 25,
+            "rarity": 38.0,
+            "id": 59
+        }
+    ]
 }
