@@ -76,6 +76,11 @@ header {
 	grid-template-rows: 2rem 1fr 2.5rem repeat(3, 1fr) 2.5rem 2.5rem;
 }
 
+.bold {
+	font-weight:bold; 
+	font-size:20px;
+}
+
 #achievementWrapper {
 	margin: 1rem;
 	margin-left: 5rem;

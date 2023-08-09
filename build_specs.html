@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCBS Advanced Build Specs</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="3dmark_calculator.js"></script>
+    <script src="build_specs.js"></script>
+    <script src="global.js"></script>
+    <script src="https://kit.fontawesome.com/5a740087a2.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="3DMark Icon.png" type="image/x-icon">
+</head>
+<body>
+    <datalist id="cpuList"></datalist>
+    <datalist id="gpuList"></datalist>
+
+    <header>
+        <i class="fa-solid fa-computer"></i> Build Specs
+        <div class="menuItems">
+            <a href="./3dmark_calculator.html"><i class="fa-solid fa-chart-line"></i> 3DMark Score Calculator</a>
+            <a href="./achievement_guide.html"><i class="fa-solid fa-trophy"></i> Achievements</a>
+        </div>
+    </header>
+
+    <div id="alertBox" data-active="false"><i class="fa-solid fa-triangle-exclamation"></i> <span id="alertMessage"></span></div>
+
+    <div class="contentWrapper">
+        <form id="form">
+            <div class="spec-input-wrapper">
+                <span class="bold">Components</span>
+                <span></span>
+
+                <span><i class="fa-solid fa-microchip"></i> Motherboard</span>
+                <input name="motherboard" list="motherboardList">
+
+                <span><i class="fa-solid fa-microchip"></i> CPU</span>
+                <input name="cpu" list="cpuList">
+
+                <span><i class="fa-solid fa-display"></i> GPU(s)</span>
+                <input name="gpu" list="gpuList">
+
+                <span><i class="fa-solid fa-display"></i> # GPUs</span>
+                <select name="gpuCount">
+                    <option value="1" selected>1: Single-GPU</option>
+                    <option value="2">2: Dual-GPUs</option>
+                </select>
+
+
+                <span class="bold">Memory</span>
+                <span></span>
+
+                <span><i class="fa-solid fa-display"></i> DIMM 1</span>
+                <input name="dimm1" list="dimmList">
+
+                <span><i class="fa-solid fa-display"></i> DIMM 2</span>
+                <input name="dimm1" list="dimmList">
+                
+                <span><i class="fa-solid fa-display"></i> DIMM 3</span>
+                <input name="dimm1" list="dimmList">
+
+                <span><i class="fa-solid fa-display"></i> DIMM 4</span>
+                <input name="dimm1" list="dimmList">
+
+
+                <span class="bold">Storage</span>
+                <span></span>
+
+                <span><i class="fa-solid fa-display"></i> Drive</span>
+                <input name="storage1" list="storageMediumList">
+
+
+                <span class="bold">Exterior</span>
+                <span></span>
+
+                <span><i class="fa-solid fa-microchip"></i> Case</span>
+                <input name="case" list="caseList">
+
+                <button type="button" id="calculate" onclick="calculateScore()">Calculate</button>
+            </div>
+        </form>
+
+        <div class="score-output-wrapper">
+            <span class="bold">3DMark Score</span>
+            <span class="bold" id="systemScore"></span>
+
+            <span><i class="fa-solid fa-microchip"></i> CPU Score</span>
+            <span id="cpuScore"></span>
+            <span><i class="fa-solid fa-display"></i> GPU Score</span>
+            <span id="gpuScore"></span>
+
+            <span><i class="fa-solid fa-tags"></i> CPU Price New</span>
+            <span id="cpuPriceNew"></span>
+            <span><i class="fa-solid fa-tag"></i> CPU Price Used</span>
+            <span id="cpuPriceUsed"></span>
+            <span><i class="fa-solid fa-tags"></i> GPU(s) Price New</span>
+            <span id="gpuPriceNew"></span>
+            <span><i class="fa-solid fa-tag"></i> GPU(s) Price Used</span>
+            <span id="gpuPriceUsed"></span>
+
+            <span><i class="fa-regular fa-snowflake"></i> GPU Cooling</span>
+            <span id="gpuCooling"></span>
+
+            <span><i class="fa-solid fa-bolt"></i> System Watts</span>
+            <span id="systemWatts"></span>
+        </div>
+    </div>
+</body>
+</html>
