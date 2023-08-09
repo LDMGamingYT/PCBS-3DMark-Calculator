@@ -62,7 +62,7 @@ function calcRewardColor(xp) {
 }
 
 async function loadAchievement(cardIndex, achievement) {
-	document.getElementsByClassName("achievement-icon")[cardIndex].src = `assets/${achievement.title}.png`;
+	document.getElementsByClassName("achievement-icon")[cardIndex].src = `assets/achievements/${achievement.title}.png`;
 	document.getElementsByClassName("achievement-title")[cardIndex].innerHTML = achievement.title;
 	document.getElementsByClassName("achievement-description")[cardIndex].innerHTML = achievement.description;
 	document.getElementsByClassName("achievement-reward")[cardIndex].className = `achievement-reward ${calcRewardColor(achievement.xp)}`;
