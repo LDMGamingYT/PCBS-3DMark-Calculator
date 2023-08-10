@@ -133,6 +133,36 @@ async function createDriveSpec(i) {
 	parent.appendChild(usedPrice);
 }
 
+function verifyOtherParts(motherboard, dimms, computerCase, parts) {
+	var alertMessage = "";
+	if (!parts.motherboards[motherboard])
+		alertMessage = "Motherboard does not exist.";
+	if (!parts.dimms[dimms])
+		alertMessage = "DIMM(s) do not exist.";
+	if (!parts.cases[computerCase])
+		alertMessage = "Case does not exist.";
+	else if (motherboard.dualGpuMaxSlotSize <= gpuCount)
+		alertMessage = `Motherboard does not have enough PCIe slots for ${gpuCount} GPUs.`;
+	else if (cpu.cpuSocket != motherboard.cpuSocket)
+		alertMessage = `${motherboard.cpuSocket} Motherboard cannot fit ${cpu.cpuSocket} CPU.`;
+	else if (dimm.ramType == motherboard.ramType)
+		alertMessage = `Motherboard has ${motherboard.ramType} slots, while DIMM uses ${dimm.ramType}`;
+	else if (ramCount <= motherboard.ramSlots)
+	  alertMessage = `Motherboard cannot fit ${ramCount} DIMM(s), only has ${motherboard.ramSlots} slot(s).`;
+	else if (ramSpeed <= motherboard.maxMemorySpeed)
+  		alertMessage = `RAM speed exceeds motherboard maximum.`;
+	else if (computerCase.motherboardSize.split(", ").includes(motherboard.motherboardSize))
+		alertMessage = "Motherboard cannot fit inside case.";
+	
+	if (alertMessage != "") {
+		showAlert(alertMessage);
+		return false;
+	}
+
+	return true;
+}
+
+
 class Build {
 	constructor(motherboard, cpu, gpu, gpuCount, dimms, ramChannels, ramSpeed, drives, computerCase) {
 		this.motherboard = motherboard;
@@ -152,10 +182,14 @@ function getBuild() {
 	var drives = [];
 	promisedParts.then(parts => {
 		for (let i = 1; i <= parseInt(document.getElementById("storage-drives").getAttribute("data-drives")); i++) {
+			if (!parts.storageDrives[drive]) {
+				showAlert(`Drive #${id} does not exist.`);
+				return null;
+			} 
 			drives.push(parts.storageDrives[document.getElementById(`storage-${i}`).value]);
 		}
 	});
-	return new Build(
+	var build = new Build(
 		form.motherboard.value,
 		form.cpu.value,
 		form.gpu.value,
@@ -166,6 +200,11 @@ function getBuild() {
 		drives,
 		form.computerCase.value
 	);
+
+	if (!verifyParts(build.cpu, build.gpu, parts) || 
+		!verifyOtherParts(build.motherboard, build.dimms, build.computerCase, parts))
+		return null;
+	return build;
 }
 
 function calculateSpecs() {
