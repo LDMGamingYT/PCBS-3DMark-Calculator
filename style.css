@@ -116,6 +116,11 @@ button:hover {
 	transform: scale(103%);
 }
 
+button:disabled {
+	background-color: var(--secondary);
+	color: var(--gray)
+}
+
 button#calculate {
 	background-color: var(--accent);
 	color: var(--background);

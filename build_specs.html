@@ -57,13 +57,13 @@
                 <input name="dimm1" list="dimmList">
 
                 <span><i class="fa-solid fa-memory"></i> DIMM 2</span>
-                <input name="dimm1" list="dimmList">
+                <input name="dimm2" list="dimmList">
                 
                 <span><i class="fa-solid fa-memory"></i> DIMM 3</span>
-                <input name="dimm1" list="dimmList">
+                <input name="dimm3" list="dimmList">
 
                 <span><i class="fa-solid fa-memory"></i> DIMM 4</span>
-                <input name="dimm1" list="dimmList">
+                <input name="dimm4" list="dimmList">
 
                 <span><i class="fa-solid fa-gauge-high"></i> RAM Speed</span>
                 <select name="ramSpeed" id="ramSpeed"></select>
@@ -71,13 +71,13 @@
 
                 <span class="bold" style="margin-top: 1rem">Storage</span>
                 <div style="justify-self: right;">
-                    <button type="button" id="remove-drive-button" class="drive-button" onclick="removeDrive()"><i class="fa-solid fa-minus"></i></button>
-                    <button type="button" id="add-drive-button" class="drive-button" onclick="addDrive()"><i class="fa-solid fa-plus"></i></button>
+                    <button type="button" id="remove-drive-button" class="drive-button" onclick="removeDrive()" disabled="true"><i class="fa-solid fa-minus"></i></button>
+                    <button type="button" class="drive-button" onclick="addDrive()"><i class="fa-solid fa-plus"></i></button>
                 </div>
 
                 <div class="score-input-wrapper" id="storage-drives" data-drives="1">
                     <span><i class="fa-solid fa-hard-drive"></i> Drive #1</span>
-                    <input name="storage" id="storage-1" list="storageDriveList">
+                    <input name="storage1" id="storage-1" list="storageDriveList">
                 </div>
 
                 <span></span>

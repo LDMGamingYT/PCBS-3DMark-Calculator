@@ -6,16 +6,18 @@ function addDrive() {
 	icon.className = "fa-solid fa-hard-drive";
 
 	const header = document.createElement("span");
+	header.id = `storage-header-${_thisDriveIndex}`;
 	header.appendChild(icon);
 	header.appendChild(document.createTextNode(` Drive #${_thisDriveIndex}`));
 
 	const input = document.createElement("input");
-	input.name = `storage`;
+	input.name = `storage${_thisDriveIndex}`;
 	input.id = `storage-${_thisDriveIndex}`;
 	input.list = "storageDriveList";
 	input.value = document.getElementById(`storage-${_thisDriveIndex-1}`).value;
 
 	parent.setAttribute("data-drives", _thisDriveIndex)
+	document.getElementById("remove-drive-button").disabled = false;
 
 	parent.appendChild(header);
 	parent.appendChild(input);
@@ -26,6 +28,12 @@ function removeDrive() {
 	const _driveIndex = parseInt(parent.getAttribute("data-drives"));
 
 	parent.removeChild(document.getElementById(`storage-${_driveIndex}`))
+	parent.removeChild(document.getElementById(`storage-header-${_driveIndex}`))
+	parent.setAttribute("data-drives", _driveIndex - 1)
+
+	if (parent.getAttribute("data-drives") == "1") {
+		document.getElementById("remove-drive-button").disabled = true;
+	}
 }
 
 function calculateSpecs() {
