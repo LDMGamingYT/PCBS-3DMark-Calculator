@@ -53,17 +53,16 @@
                 <span class="bold" style="margin-top: 1rem">Memory</span>
                 <span></span>
 
-                <span><i class="fa-solid fa-memory"></i> DIMM #1</span>
-                <input name="dimm1" list="dimmList">
+                <span><i class="fa-solid fa-memory"></i> DIMM(s)</span>
+                <input name="dimms" list="dimmList">
 
-                <span><i class="fa-solid fa-memory"></i> DIMM #2</span>
-                <input name="dimm2" list="dimmList">
-                
-                <span><i class="fa-solid fa-memory"></i> DIMM #3</span>
-                <input name="dimm3" list="dimmList">
-
-                <span><i class="fa-solid fa-memory"></i> DIMM #4</span>
-                <input name="dimm4" list="dimmList">
+                <span><i class="fa-solid fa-memory"></i> RAM Channels</span>
+                <select name="ramChannels">
+                    <option value="1">1: Single-channel</option>
+                    <option value="2">2: Dual-channel</option>
+                    <option value="3">3: Triple-channel</option>
+                    <option value="4">4: Quad-channel</option>
+                </select>
 
                 <span><i class="fa-solid fa-gauge-high"></i> RAM Speed</span>
                 <select name="ramSpeed" id="ramSpeed"></select>
