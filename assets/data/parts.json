@@ -77211,7 +77211,7 @@
 			"isDlc": "Yes"
 		}
 	},
-	"storageMediums": {
+	"storageDrives": {
 		"Seagate BarraCuda 500GB 32MB Cache": {
 			"isHEMPart": false,
 			"fullName": "Seagate BarraCuda 500GB 32MB Cache",
