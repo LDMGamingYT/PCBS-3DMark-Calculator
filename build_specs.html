@@ -91,30 +91,198 @@
             </div>
         </form>
 
-        <div class="score-output-wrapper">
-            <span class="bold">Specifications</span>
+        <div class="score-input-wrapper">
+            <span class="bold"><i class="fa-solid fa-microchip"></i> CPU</span>
             <span></span>
 
-            <span><i class="fa-solid fa-microchip"></i> CPU Score</span>
-            <span id="cpuScore"></span>
-            <span><i class="fa-solid fa-display"></i> GPU Score</span>
-            <span id="gpuScore"></span>
+            <span><i class="fa-solid fa-hammer"></i> Manufacturer</span>
+            <span id="cpuManufacturer"></span>
+            <span><i class="fa-solid fa-microchip"></i> Socket</span>
+            <span id="cpuSocket"></span>
+            <span><i class="fa-solid fa-wave-square"></i> Frequency</span>
+            <span id="cpuSocket"></span>
+            <span><i class="fa-solid fa-gauge-high"></i> Default RAM Speed</span>
+            <span id="cpuDefaultMemorySpeed"></span>
+            <span><i class="fa-solid fa-memory"></i> Max RAM Channels</span>
+            <span id="cpuMaxRamChannels"></span>
+            <span><i class="fa-solid fa-bolt"></i> Wattage</span>
+            <span id="cpuWattage"></span>
 
-            <span><i class="fa-solid fa-tags"></i> CPU Price New</span>
+            <span><i class="fa-solid fa-tags" style="margin-top: 0.5rem;"></i> New Price</span>
             <span id="cpuPriceNew"></span>
-            <span><i class="fa-solid fa-tag"></i> CPU Price Used</span>
+            <span><i class="fa-solid fa-tag"></i> Used Price</span>
             <span id="cpuPriceUsed"></span>
-            <span><i class="fa-solid fa-tags"></i> GPU(s) Price New</span>
+
+
+            <span class="bold" style="margin-top: 1rem;"><i class="fa-solid fa-display"></i> GPU</span>
+            <span></span>
+
+            <span><i class="fa-solid fa-hammer"></i> Manufacturer</span>
+            <span id="gpuManufacturer"></span>
+            <span><i class="fa-solid fa-microchip"></i> Chipset</span>
+            <span id="gpuChipset"></span>
+            <span><i class="fa-regular fa-snowflake"></i> Cooling Method</span>
+            <span id="gpuCooling"></span>
+            <span><i class="fa-solid fa-wave-square"></i> Core Clock Frequency</span>
+            <span id="gpuCoreClock"></span>
+            <span><i class="fa-solid fa-wave-square"></i> Mem. Clock Frequency</span>
+            <span id="gpuMemClock"></span>
+            <span><i class="fa-solid fa-memory"></i> VRAM</span>
+            <span id="gpuVram"></span>
+            <span><i class="fa-solid fa-ruler-combined"></i> Slot Size</span>
+            <span id="gpuVram"></span>
+            <span><i class="fa-solid fa-microchip"></i> Multi-GPU</span>
+            <span id="gpuMultiGpu"></span>
+            <span><i class="fa-solid fa-bolt"></i> Wattage</span>
+            <span id="gpuWattage"></span>
+
+            <span><i class="fa-solid fa-tags" style="margin-top: 0.5rem;"></i> New Price</span>
             <span id="gpuPriceNew"></span>
-            <span><i class="fa-solid fa-tag"></i> GPU(s) Price Used</span>
+            <span><i class="fa-solid fa-tag"></i> Used Price</span>
             <span id="gpuPriceUsed"></span>
 
-            <span><i class="fa-regular fa-snowflake"></i> GPU Cooling</span>
-            <span id="gpuCooling"></span>
+            
+            <span class="bold" style="margin-top: 1rem;"><i class="fa-solid fa-microchip"></i> Motherboard</span>
+            <span></span>
 
-            <span><i class="fa-solid fa-bolt"></i> System Watts</span>
-            <span id="systemWatts"></span>
+            <span><i class="fa-solid fa-hammer"></i> Manufacturer</span>
+            <span id="mbManufacturer"></span>
+            <span><i class="fa-solid fa-microchip"></i> Socket</span>
+            <span id="mbSocket"></span>
+            <span><i class="fa-solid fa-ruler-combined"></i> Size</span>
+            <span id="mbSize"></span>
+            <span><i class="fa-solid fa-memory"></i> RAM Generation</span>
+            <span id="mbRamGeneration"></span>
+            <span><i class="fa-solid fa-gauge-high"></i> Max RAM Speed</span>
+            <span id="mbMaxRamSpeed"></span>
+            <span><i class="fa-solid fa-memory"></i> DIMM Slots</span>
+            <span id="mbDimmSlots"></span>
+            <span><i class="fa-solid fa-microchip"></i> Supports Nvidia SLI</span>
+            <span id="mbSli"></span>
+            <span><i class="fa-solid fa-microchip"></i> Supports AMD CrossFire</span>
+            <span id="mbCrossFire"></span>
+            <span><i class="fa-solid fa-display"></i> PCIe (GPU) Slots</span>
+            <span id="mbCrossFire"></span>
+            <span><i class="fa-solid fa-microchip"></i> M.2 Slots</span>
+            <span id="mbM2Slots"></span>
+            <span><i class="fa-solid fa-fire"></i> Heat Sinkable M.2 Slots</span>
+            <span id="mbM2SlotsHeatsink"></span>
+            <span><i class="fa-solid fa-bolt"></i> Wattage</span>
+            <span id="mbWattage"></span>
+
+            <span><i class="fa-solid fa-tags" style="margin-top: 0.5rem;"></i> New Price</span>
+            <span id="mbPriceNew"></span>
+            <span><i class="fa-solid fa-tag"></i> Used Price</span>
+            <span id="mbPriceUsed"></span>
+
+
+            <span class="bold" style="margin-top: 1rem;"><i class="fa-solid fa-memory"></i> Memory</span>
+            <span></span>
+
+            <span><i class="fa-solid fa-hammer"></i> Manufacturer</span>
+            <span id="ramManufacturer"></span>
+            <span><i class="fa-solid fa-gauge"></i> Frequency</span>
+            <span id="ramFrequency"></span>
+            <span><i class="fa-solid fa-memory"></i> RAM Generation</span>
+            <span id="ramGeneration"></span>
+            <span><i class="fa-solid fa-memory"></i> Size per DIMM</span>
+            <span id="ramDimmSize"></span>
+
+            <span><i class="fa-solid fa-memory" style="margin-top: 0.5rem;"></i> Total Size</span>
+            <span id="ramTotalSize"></span>
+
+            <span><i class="fa-solid fa-tags" style="margin-top: 0.5rem;"></i> New Price (1 DIMM)</span>
+            <span id="ramDimmPriceNew"></span>
+            <span><i class="fa-solid fa-tag"></i> Used Price (1 DIMM)</span>
+            <span id="ramDimmPriceUsed"></span>
+
+            <span><i class="fa-solid fa-tags" style="margin-top: 0.5rem;"></i> Total New Price</span>
+            <span id="ramPriceNew"></span>
+            <span><i class="fa-solid fa-tag"></i> Total Used Price</span>
+            <span id="ramPriceUsed"></span>
+
+            <span class="bold" style="margin-top: 1rem;"><i class="fa-solid fa-hard-drive"></i> Storage</span>
+            <span></span>
+
+            <div class="storage-specs-wrapper score-input-wrapper">
+                <span style="font-weight: bold;">Drive #1</span>
+                <span></span>
+                <span><i class="fa-solid fa-hammer"></i> Manufacturer</span>
+                <span id="storage1Manufacturer"></span>
+                <span><i class="fa-solid fa-hard-drive"></i> Size</span>
+                <span id="storage1Size"></span>
+                <span><i class="fa-solid fa-hard-drive"></i> Type</span>
+                <span id="storage1Type"></span>
+                <span><i class="fa-solid fa-gauge"></i> Speed</span>
+                <span id="storage1Speed"></span>
+                <span><i class="fa-solid fa-fire"></i> Has Heatsink</span>
+                <span id="storage1Heatsink"></span>
+                <span><i class="fa-solid fa-tags"></i> New Price</span>
+                <span id="storage1PriceNew"></span>
+                <span><i class="fa-solid fa-tag"></i> Used Price</span>
+                <span id="storage1PriceUsed"></span>
+            </div>
+            <span></span>
+
+            <span><i class="fa-solid fa-hard-drive" style="margin-top: 0.5rem;"></i> Total Size</span>
+            <span id="storageTotalSize"></span>
+            <span><i class="fa-solid fa-hard-drive"></i> Total Drives</span>
+            <span id="storageTotalDrives"></span>
+
+            <span><i class="fa-solid fa-tags" style="margin-top: 0.5rem;"></i> Total New Price</span>
+            <span id="mbPriceNew"></span>
+            <span><i class="fa-solid fa-tag"></i> Total Used Price</span>
+            <span id="mbPriceUsed"></span>
+
+
+            <span class="bold" style="margin-top: 1rem;"><i class="fa-solid fa-database"></i> Case</span>
+            <span></span>
+
+            <span><i class="fa-solid fa-hammer"></i> Manufacturer</span>
+            <span id="caseManufacturer"></span>
+            <span><i class="fa-solid fa-ruler-combined"></i> Size</span>
+            <span id="caseSize"></span>
+            <span><i class="fa-solid fa-microchip"></i> Motherboard Sizes</span>
+            <span id="caseMbSizes"></span>
+            <span><i class="fa-solid fa-car-battery"></i> PSU Size</span>
+            <span id="casePsuSize"></span>
+            <span><i class="fa-solid fa-ruler-horizontal"></i> Max GPU Length</span>
+            <span id="caseGpuLength"></span>
+            <span><i class="fa-solid fa-ruler"></i> Max CPU Cooler Height</span>
+            <span id="caseCpuCoolerHeight"></span>
+            <span><i class="fa-solid fa-ruler-horizontal"></i> Max PSU Length</span>
+            <span id="casePsuLength"></span>
+            <span><i class="fa-solid fa-ruler-horizontal"></i> Max Radiator Length (120mm)</span>
+            <span id="caseRadiatorLength120"></span>
+            <span><i class="fa-solid fa-ruler-horizontal"></i> Max Radiator Length (140mm)</span>
+            <span id="caseRadiatorLength140"></span>
+
+            <span><i class="fa-solid fa-tags" style="margin-top: 0.5rem;"></i> New Price</span>
+            <span id="casePriceNew"></span>
+            <span><i class="fa-solid fa-tag"></i> Used Price</span>
+            <span id="casePriceUsed"></span>
+
+
+            <span class="bold" style="margin-top: 1rem;"><i class="fa-solid fa-computer"></i> System Overview</span>
+            <span></span>
+
+            <span><i class="fa-solid fa-hard-drive"></i> Storage</span>
+            <span id="systemStorage"></span>
+            <span><i class="fa-solid fa-memory"></i> Memory</span>
+            <span id="systemMemory"></span>
+            <span><i class="fa-solid fa-gauge"></i> Memory Freqency</span>
+            <span id="systemMemoryFrequency"></span>
+            <span><i class="fa-solid fa-gauge-high"></i> RAM Clock Status</span>
+            <span id="systemClockStatus"></span>
+            <span><i class="fa-solid fa-bolt"></i> Wattage</span>
+            <span id="systemWattage"></span>
+
+            <span><i class="fa-solid fa-tags" style="margin-top: 0.5rem;"></i> New Price</span>
+            <span id="systemCostNew"></span>
+            <span><i class="fa-solid fa-tag"></i> Used Price</span>
+            <span id="systemPriceUsed"></span>
         </div>
+        <br>
     </div>
 </body>
 </html>
