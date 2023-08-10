@@ -36,10 +36,6 @@ function removeDrive() {
 	}
 }
 
-function calculateSpecs() {
-
-}
-
 function setOptions() {
 	promisedParts.then(parts => {
 		document.getElementById('motherboardList').innerHTML = wrapOptions(parts, "motherboards");
@@ -47,6 +43,10 @@ function setOptions() {
 		document.getElementById('storageDriveList').innerHTML = wrapOptions(parts, "storageDrives");
 		document.getElementById('caseList').innerHTML = wrapOptions(parts, "cases");
 	});
+}
+
+function calculateSpecs() {
+
 }
 
 window.onload = function() {
