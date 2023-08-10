@@ -57,7 +57,7 @@ async function createDriveSpec(i) {
 	manufacturerIcon.className = "fa-solid fa-hammer";
 	const manufacturer = document.createElement("span");
 	manufacturer.id = `storage${i}Manufacturer`;
-	manufacturerHeader.appendChild(Icon);
+	manufacturerHeader.appendChild(manufacturerIcon);
 	manufacturerHeader.appendChild(document.createTextNode(" Manufacturer"));
 
 	const sizeHeader = document.createElement("span");
@@ -73,7 +73,7 @@ async function createDriveSpec(i) {
 	typeIcon.className = "fa-solid fa-hard-drive";
 	const type = document.createElement("span");
 	type.id = `storage${i}Type`;
-	typeHeader.appendChild(Icon);
+	typeHeader.appendChild(typeHeader);
 	typeHeader.appendChild(document.createTextNode(" Type"));
 
 	const speedHeader = document.createElement("span");
@@ -81,7 +81,7 @@ async function createDriveSpec(i) {
 	speedIcon.className = "fa-solid fa-gauge";
 	const speed = document.createElement("span");
 	speed.id = `storage${i}Speed`;
-	speedHeader.appendChild(Icon);
+	speedHeader.appendChild(speedIcon);
 	speedHeader.appendChild(document.createTextNode(" Speed"));
 
 	const heatsinkHeader = document.createElement("span");
@@ -89,7 +89,7 @@ async function createDriveSpec(i) {
 	heatsinkIcon.className = "fa-solid fa-fire";
 	const heatsink = document.createElement("span");
 	heatsink.id = `storage${i}Heatsink`;
-	heatsinkHeader.appendChild(Icon);
+	heatsinkHeader.appendChild(heatsinkIcon);
 	heatsinkHeader.appendChild(document.createTextNode(" Has Heatsink"));
 
 	const newPriceHeader = document.createElement("span");
@@ -97,7 +97,7 @@ async function createDriveSpec(i) {
 	newPriceIcon.className = "fa-solid fa-tags";
 	const newPrice = document.createElement("span");
 	newPrice.id = `storage${i}PriceNew`;
-	newPriceHeader.appendChild(Icon);
+	newPriceHeader.appendChild(newPriceIcon);
 	newPriceHeader.appendChild(document.createTextNode(" New Price"));
 
 	const usedPriceHeader = document.createElement("span");
@@ -105,14 +105,65 @@ async function createDriveSpec(i) {
 	usedPriceIcon.className = "fa-solid fa-tag";
 	const usedPrice = document.createElement("span");
 	usedPrice.id = `storage${i}PriceUsed`;
-	usedPriceHeader.appendChild(Icon);
+	usedPriceHeader.appendChild(usedPriceIcon);
 	usedPriceHeader.appendChild(document.createTextNode(" Used Price"));
 
-	// TODO: Add all of these to parent
+	parent.appendChild(header);
+	parent.appendChild(document.createElement("span"));
+
+	parent.appendChild(manufacturerHeader);
+	parent.appendChild(manufacturer);
+
+	parent.appendChild(sizeHeader);
+	parent.appendChild(size);
+
+	parent.appendChild(typeHeader);
+	parent.appendChild(type);
+
+	parent.appendChild(speedHeader);
+	parent.appendChild(speed);
+
+	parent.appendChild(heatsinkHeader);
+	parent.appendChild(heatsink);
+
+	parent.appendChild(newPriceHeader);
+	parent.appendChild(newPrice);
+
+	parent.appendChild(usedPriceHeader);
+	parent.appendChild(usedPrice);
+}
+
+class Build {
+	constructor(motherboard, cpu, gpu, gpuCount, dimms, ramChannels, ramSpeed, drives, computerCase) {
+		this.motherboard = motherboard;
+		this.cpu = cpu;
+		this.gpu = gpu;
+		this.gpuCount = parseInt(gpuCount);
+		this.dimms = dimms;
+		this.ramChannels = parseInt(ramChannels);
+		this.ramSpeed = parseInt(ramSpeed);
+		this.drives = drives;
+		this.computerCase = computerCase;
+	}
+}
+
+function getBuild() {
+	const form = document.getElementById("form");
+	return new Build(
+		form.motherboard.value,
+		form.cpu.value,
+		form.gpu.value,
+		form.gpuCount.value,
+		form.dimms.value,
+		form.ramChannels.value,
+		form.ramSpeed.value,
+		[],
+		form.computerCase.value
+	);
 }
 
 function calculateSpecs() {
-
+	console.log(getBuild().motherboard);
 }
 
 window.onload = function() {
