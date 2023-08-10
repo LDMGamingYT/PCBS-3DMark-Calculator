@@ -150,9 +150,11 @@ class Build {
 function getBuild() {
 	const form = document.getElementById("form");
 	var drives = [];
-	for (let i = 0; i < parseInt(form["storage-drives"].getAttribute("data-drives")); i++) {
-		drives.push(document.getElementById(`storage-${i}`));
-	}
+	promisedParts.then(parts => {
+		for (let i = 1; i <= parseInt(document.getElementById("storage-drives").getAttribute("data-drives")); i++) {
+			drives.push(parts.storageDrives[document.getElementById(`storage-${i}`).value]);
+		}
+	});
 	return new Build(
 		form.motherboard.value,
 		form.cpu.value,
