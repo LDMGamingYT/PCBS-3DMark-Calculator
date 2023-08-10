@@ -149,6 +149,10 @@ class Build {
 
 function getBuild() {
 	const form = document.getElementById("form");
+	var drives = [];
+	for (let i = 0; i < parseInt(form["storage-drives"].getAttribute("data-drives")); i++) {
+		drives.push(document.getElementById(`storage-${i}`));
+	}
 	return new Build(
 		form.motherboard.value,
 		form.cpu.value,
@@ -157,13 +161,13 @@ function getBuild() {
 		form.dimms.value,
 		form.ramChannels.value,
 		form.ramSpeed.value,
-		[],
+		drives,
 		form.computerCase.value
 	);
 }
 
 function calculateSpecs() {
-	console.log(getBuild().motherboard);
+	console.log(getBuild().drives);
 }
 
 window.onload = function() {
