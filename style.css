@@ -101,19 +101,15 @@ select, input, button {
 	transition: 50ms ease-in-out;
 }
 
-#add-drive-button {
+.drive-button {
 	width: 2rem;
 	height: 2rem;
 	padding: 0;
-	justify-self: right;
+	position: relative;
 }
 
-#add-drive-button:hover {
-	width: 6rem;
-}
-
-#add-drive-button:hover::before {
-	content: "Add Drive "
+.drive-button:hover {
+	transform: scale(109%);
 }
 
 button:hover {

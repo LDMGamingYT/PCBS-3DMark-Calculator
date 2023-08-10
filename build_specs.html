@@ -70,13 +70,19 @@
 
 
                 <span class="bold" style="margin-top: 1rem">Storage</span>
-                <button type="button" id="add-drive-button" onclick="addDrive()"><i class="fa-solid fa-plus"></i></button>
+                <div style="justify-self: right;">
+                    <button type="button" id="remove-drive-button" class="drive-button" onclick="removeDrive()"><i class="fa-solid fa-minus"></i></button>
+                    <button type="button" id="add-drive-button" class="drive-button" onclick="addDrive()"><i class="fa-solid fa-plus"></i></button>
+                </div>
 
-                <span><i class="fa-solid fa-hard-drive"></i> Drive</span>
-                <input name="storage1" list="storageDriveList">
+                <div class="score-input-wrapper" id="storage-drives" data-drives="1">
+                    <span><i class="fa-solid fa-hard-drive"></i> Drive #1</span>
+                    <input name="storage" id="storage-1" list="storageDriveList">
+                </div>
 
+                <span></span>
 
-                <span class="bold" style="margin-top: 1rem">Exterior</span>
+                <span class="bold" style="margin-top: 1rem;">Exterior</span>
                 <span></span>
 
                 <span><i class="fa-solid fa-database"></i> Case</span>
