@@ -230,5 +230,4 @@ function calculateScore() {
 window.onload = function() {
 	setListOptions();
 	setSelectOptions();
-	settingOptionsOnLoad = false;
 }
