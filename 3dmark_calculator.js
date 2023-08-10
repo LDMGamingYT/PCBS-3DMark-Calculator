@@ -9,24 +9,13 @@ function fetchPartsList() {
 var promisedParts = fetchPartsList();
 var settingOptionsOnLoad = true;
 
-function wrapCpuOptions(parts) {
-	var cpus = Object.keys(parts.cpus).sort(function (a, b) {
+function wrapOptions(parts, group) {
+	var items = Object.keys(parts[group]).sort(function (a, b) {
 			return a.toLowerCase().localeCompare(b.toLowerCase());
 	});
 	var options = '';
-	for (var i = 0; i < cpus.length; i++) {
-		options += '<option value="' + cpus[i] + '" />';
-	}
-	return options;
-}
-
-function wrapGpuOptions(parts) {
-	var gpus = Object.keys(parts.gpus).sort(function (a, b) {
-		return a.toLowerCase().localeCompare(b.toLowerCase());
-	});
-	var options = '';
-	for (var i = 0; i < gpus.length; i++) {
-		options += '<option value="' + gpus[i] + '" />';
+	for (var i = 0; i < items.length; i++) {
+		options += '<option value="' + items[i] + '" />';
 	}
 	return options;
 }
@@ -42,8 +31,8 @@ function wrapRamSpeeds(parts, selectedValue) {
 
 function setListOptions() {
 	promisedParts.then(parts => {
-		document.getElementById('cpuList').innerHTML = wrapCpuOptions(parts);
-		document.getElementById('gpuList').innerHTML = wrapGpuOptions(parts);
+		document.getElementById('cpuList').innerHTML = wrapOptions(parts, "cpus");
+		document.getElementById('gpuList').innerHTML = wrapOptions(parts, "gpus");
 	});
 }
 
