@@ -182,10 +182,15 @@ function getBuild() {
 	var drives = [];
 	promisedParts.then(parts => {
 		for (let i = 1; i <= parseInt(document.getElementById("storage-drives").getAttribute("data-drives")); i++) {
-			drives.push(parts.storageDrives[document.getElementById(`storage-${i}`).value]);
+			var name = document.getElementById(`storage-${i}`).value;
+			if (!parts.storageDrives[name]) {
+				showAlert(`Drive #${i} does not exist.`);
+				drives = null;
+			} 
+			drives.push(parts.storageDrives[name]);
 		}
 	});
-	return new Build(
+	var build = new Build(
 		form.motherboard.value,
 		form.cpu.value,
 		form.gpu.value,
@@ -196,6 +201,12 @@ function getBuild() {
 		drives,
 		form.computerCase.value
 	);
+
+	if (!verifyParts(build.cpu, build.gpu, parts) || 
+		!verifyOtherParts(build.motherboard, build.dimms, build.computerCase, parts) ||
+		drives == null)
+		return null;
+	return build;
 }
 
 function calculateSpecs() {
