@@ -182,51 +182,51 @@ class Build {
 		this.drives = drives;
 		this.computerCase = computerCase;
 	}
-}
 
-/**
- * @returns {Promise<Build> | Promise<null>}
- */
-function getBuild() {
-	const form = document.getElementById("form");
-	var drives = [];
-	var driveValidity = true;
+	/**
+	 * @returns {Promise<Build> | Promise<null>}
+	 */
+	static get() {
+		const form = document.getElementById("form");
+		var drives = [];
+		var driveValidity = true;
 
-	return promisedParts.then(parts => {
-		for (let i = 1; i <= parseInt(document.getElementById("storage-drives").getAttribute("data-drives")); i++) {
-			var name = document.getElementById(`storage-${i}`).value;
-			
-			if (!parts.storageDrives[name]) {
-				showAlert(`Drive #${i} does not exist.`);
-				driveValidity = false;
-				break;
-			} else {
-				drives.push(parts.storageDrives[name]);
+		return promisedParts.then(parts => {
+			for (let i = 1; i <= parseInt(document.getElementById("storage-drives").getAttribute("data-drives")); i++) {
+				var name = document.getElementById(`storage-${i}`).value;
+				
+				if (!parts.storageDrives[name]) {
+					showAlert(`Drive #${i} does not exist.`);
+					driveValidity = false;
+					break;
+				} else {
+					drives.push(parts.storageDrives[name]);
+				}
 			}
-		}
 
-		var build = new Build(
-			form.motherboard.value,
-			form.cpu.value,
-			form.gpu.value,
-			form.gpuCount.value,
-			form.dimms.value,
-			form.ramChannels.value,
-			form.ramSpeed.value,
-			drives,
-			form.computerCase.value
-		);
+			var build = new Build(
+				form.motherboard.value,
+				form.cpu.value,
+				form.gpu.value,
+				form.gpuCount.value,
+				form.dimms.value,
+				form.ramChannels.value,
+				form.ramSpeed.value,
+				drives,
+				form.computerCase.value
+			);
 
-		if (!driveValidity 
-			|| !verifyParts(build.cpu, build.ramChannels, build.gpu, build.gpuCount, parts) 
-			|| !verifyOtherParts(build.motherboard, build.dimms, build.computerCase, build.gpuCount, build.cpu, build.ramChannels, parts))
-			return null;
-		return build;
-	});
+			if (!driveValidity 
+				|| !verifyParts(build.cpu, build.ramChannels, build.gpu, build.gpuCount, parts) 
+				|| !verifyOtherParts(build.motherboard, build.dimms, build.computerCase, build.gpuCount, build.cpu, build.ramChannels, parts))
+				return null;
+			return build;
+		});
+	}
 }
 
 function calculateSpecs() {
-	getBuild().then(build => {
+	Build.get().then(build => {
 		if (build === null) return;
 		console.log(build.drives);
 	});
