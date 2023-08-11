@@ -155,15 +155,14 @@ function verifyOtherParts(motherboardName, dimmName, caseName, gpuCount, cpuName
 		alertMessage = `${motherboard.cpuSocket} Motherboard cannot fit ${cpu.cpuSocket} CPU.`;
 	else if (dimm.ramType == motherboard.ramType)
 		alertMessage = `Motherboard has ${motherboard.ramType} slots, while DIMM uses ${dimm.ramType}`;
-	else if (ramCount <= motherboard.ramSlots)
+	else if (ramCount > motherboard.ramSlots)
 	  alertMessage = `Motherboard cannot fit ${ramCount} DIMM(s), only has ${motherboard.ramSlots} slot(s).`;
 	else if (ramSpeed <= motherboard.maxMemorySpeed)
   		alertMessage = `RAM speed exceeds motherboard maximum.`;
-	else if (computerCase.motherboardSize.split(", ").includes(motherboard.motherboardSize))
-		alertMessage = "Motherboard cannot fit inside case.";
-	
+	else if (!computerCase.motherboardSize.slice(0, -1).split(", ").includes(motherboard.motherboardSize)) 
+		alertMessage = `${motherboard.motherboardSize} Motherboard cannot fit inside case (supports ${computerCase.motherboardSize.slice(0, -1)} motherboards).`;
 	if (alertMessage != "") {
-		showAlert(alertMessage);
+		showAlert(alertMessage, 5000);
 		return false;
 	}
 
@@ -186,18 +185,14 @@ class Build {
 }
 
 /**
- * @returns {Build} or null
+ * @returns {Promise<Build> | Promise<null>}
  */
 function getBuild() {
 	const form = document.getElementById("form");
 	var drives = [];
-	var buildValidity;
+	var buildValidity = true;
 
 	promisedParts.then(parts => {
-		buildValidity = verifyParts(build.cpu, build.ramChannels, build.gpu, build.gpuCount, parts) 
-						&& verifyOtherParts(build.motherboard, build.dimms, build.computerCase, build.gpuCount, build.cpu, build.ramChannels, parts);
-		if (!buildValidity) return;
-
 		for (let i = 1; i <= parseInt(document.getElementById("storage-drives").getAttribute("data-drives")); i++) {
 			var name = document.getElementById(`storage-${i}`).value;
 			
@@ -209,30 +204,31 @@ function getBuild() {
 				drives.push(parts.storageDrives[name]);
 			}
 		}
+
+		var build = new Build(
+			form.motherboard.value,
+			form.cpu.value,
+			form.gpu.value,
+			form.gpuCount.value,
+			form.dimms.value,
+			form.ramChannels.value,
+			form.ramSpeed.value,
+			drives,
+			form.computerCase.value
+		);
+		
+		buildValidity = verifyParts(build.cpu, build.ramChannels, build.gpu, build.gpuCount, parts) 
+						&& verifyOtherParts(build.motherboard, build.dimms, build.computerCase, build.gpuCount, build.cpu, build.ramChannels, parts);
+
+		if (!buildValidity)
+			return null;
+		return build;
 	});
-
-	var build = new Build(
-		form.motherboard.value,
-		form.cpu.value,
-		form.gpu.value,
-		form.gpuCount.value,
-		form.dimms.value,
-		form.ramChannels.value,
-		form.ramSpeed.value,
-		drives,
-		form.computerCase.value
-	);
-
-	if (!buildValidity)
-		return null;
-	return build;
 }
 
 function calculateSpecs() {
 	var build = getBuild();
 	if (build === null) return;
-	
-	console.log(getBuild().drives);
 }
 
 window.onload = function() {
