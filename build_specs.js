@@ -185,7 +185,7 @@ function getBuild() {
 			drives.push(parts.storageDrives[document.getElementById(`storage-${i}`).value]);
 		}
 	});
-	var build = new Build(
+	return new Build(
 		form.motherboard.value,
 		form.cpu.value,
 		form.gpu.value,
