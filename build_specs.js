@@ -182,12 +182,7 @@ function getBuild() {
 	var drives = [];
 	promisedParts.then(parts => {
 		for (let i = 1; i <= parseInt(document.getElementById("storage-drives").getAttribute("data-drives")); i++) {
-			var name = document.getElementById(`storage-${i}`).value;
-			if (!parts.storageDrives[name]) {
-				showAlert(`Drive #${i} does not exist.`);
-				drives = null;
-			} 
-			drives.push(parts.storageDrives[name]);
+			drives.push(parts.storageDrives[document.getElementById(`storage-${i}`).value]);
 		}
 	});
 	var build = new Build(
@@ -201,12 +196,6 @@ function getBuild() {
 		drives,
 		form.computerCase.value
 	);
-
-	if (!verifyParts(build.cpu, build.gpu, parts) || 
-		!verifyOtherParts(build.motherboard, build.dimms, build.computerCase, parts) ||
-		drives == null)
-		return null;
-	return build;
 }
 
 function calculateSpecs() {
