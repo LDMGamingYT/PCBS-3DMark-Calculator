@@ -204,23 +204,22 @@ class Build {
 				}
 			}
 
-			var build = new Build(
-				form.motherboard.value,
-				form.cpu.value,
-				form.gpu.value,
+			if (!driveValidity 
+				|| !verifyParts(form.cpu.value, form.ramChannels.value, form.gpu.value, form.gpuCount.value, parts) 
+				|| !verifyOtherParts(form.motherboard.value, form.dimms.value, form.computerCase.value, form.gpuCount.value, form.cpu.value, form.ramChannels.value, parts))
+				return null;
+
+			return new Build(
+				parts.motherboards[form.motherboard.value],
+				parts.cpus[form.cpu.value],
+				parts.gpus[form.gpu.value],
 				form.gpuCount.value,
-				form.dimms.value,
+				parts.dimms[form.dimms.value],
 				form.ramChannels.value,
 				form.ramSpeed.value,
 				drives,
-				form.computerCase.value
+				parts.cases[form.computerCase.value]
 			);
-
-			if (!driveValidity 
-				|| !verifyParts(build.cpu, build.ramChannels, build.gpu, build.gpuCount, parts) 
-				|| !verifyOtherParts(build.motherboard, build.dimms, build.computerCase, build.gpuCount, build.cpu, build.ramChannels, parts))
-				return null;
-			return build;
 		});
 	}
 }
