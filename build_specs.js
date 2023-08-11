@@ -133,6 +133,18 @@ async function createDriveSpec(i) {
 	parent.appendChild(usedPrice);
 }
 
+async function loadSpecSheet(cpu, gpu, motherboard, memory, drives, computerCase) {
+	// CPU
+	document.getElementById("cpuManufacturer").innerHTML = cpu.manufacturer;
+	document.getElementById("cpuSocket").innerHTML = cpu.cpuSocket;
+	document.getElementById("cpuFrequency").innerHTML = cpu.frequency + " MHz";
+	document.getElementById("cpuDefaultMemorySpeed").innerHTML = cpu.defaultMemorySpeed + " MHz";;
+	document.getElementById("cpuMaxRamChannels").innerHTML = cpu.maxMemoryChannels;
+	document.getElementById("cpuWattage").innerHTML = cpu.wattage + " W";;
+	document.getElementById("cpuPriceNew").innerHTML = "$" + cpu.price;
+	document.getElementById("cpuPriceUsed").innerHTML = "$" + cpu.sellPrice;
+}
+
 /**
  * This method assumes that {cpuName} is a valid CPU in parts.json.
  * @returns {Boolean}
@@ -227,7 +239,7 @@ class Build {
 function calculateSpecs() {
 	Build.get().then(build => {
 		if (build === null) return;
-		console.log(build.drives);
+		loadSpecSheet(build.cpu, build.gpu, build.motherboard, build.dimms, build.drives, build.computerCase);
 	});
 }
 
