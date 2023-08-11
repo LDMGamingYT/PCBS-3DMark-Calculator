@@ -133,7 +133,11 @@ async function createDriveSpec(i) {
 	parent.appendChild(usedPrice);
 }
 
-function verifyOtherParts(motherboard, dimms, computerCase, parts) {
+/**
+ * This method assumes that {cpuName} is a valid CPU in parts.json.
+ * @returns {Boolean}
+ */
+function verifyOtherParts(motherboardName, dimmName, caseName, gpuCount, cpuName, ramCount, parts) {
 	var alertMessage = "";
 	var motherboard;
 	var dimm;
@@ -190,6 +194,10 @@ function getBuild() {
 	var buildValidity;
 
 	promisedParts.then(parts => {
+		buildValidity = verifyParts(build.cpu, build.ramChannels, build.gpu, build.gpuCount, parts) 
+						&& verifyOtherParts(build.motherboard, build.dimms, build.computerCase, build.gpuCount, build.cpu, build.ramChannels, parts);
+		if (!buildValidity) return;
+
 		for (let i = 1; i <= parseInt(document.getElementById("storage-drives").getAttribute("data-drives")); i++) {
 			var name = document.getElementById(`storage-${i}`).value;
 			
