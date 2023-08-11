@@ -133,13 +133,21 @@ async function createDriveSpec(i) {
 	parent.appendChild(usedPrice);
 }
 
-function verifyOtherParts(motherboard, dimms, computerCase, parts) {
+/**
+ * This method assumes that {cpuName} is a valid CPU in parts.json.
+ * @returns {Boolean}
+ */
+function verifyOtherParts(motherboardName, dimmName, caseName, gpuCount, cpuName, parts) {
 	var alertMessage = "";
-	if (!parts.motherboards[motherboard])
+	var motherboard;
+	var dimm;
+	var computerCase;
+	var cpu = parts.cpus[cpuName];
+	if (!(motherboard = parts.motherboards[motherboardName]))
 		alertMessage = "Motherboard does not exist.";
-	if (!parts.dimms[dimms])
+	else if (!(dimm = parts.dimms[dimmName]))
 		alertMessage = "DIMM(s) do not exist.";
-	if (!parts.cases[computerCase])
+	else if (!(computerCase = parts.cases[caseName]))
 		alertMessage = "Case does not exist.";
 	else if (motherboard.dualGpuMaxSlotSize <= gpuCount)
 		alertMessage = `Motherboard does not have enough PCIe slots for ${gpuCount} GPUs.`;
@@ -177,19 +185,32 @@ class Build {
 	}
 }
 
+/**
+ * @returns {Build} or null
+ */
 function getBuild() {
 	const form = document.getElementById("form");
 	var drives = [];
+	var buildValidity;
+
 	promisedParts.then(parts => {
+		buildValidity = verifyParts(build.cpu, build.ramChannels, build.gpu, build.gpuCount, parts) 
+						&& verifyOtherParts(build.motherboard, build.dimms, build.computerCase, build.gpuCount, build.cpu, parts);
+		if (!buildValidity) return;
+
 		for (let i = 1; i <= parseInt(document.getElementById("storage-drives").getAttribute("data-drives")); i++) {
 			var name = document.getElementById(`storage-${i}`).value;
+			
 			if (!parts.storageDrives[name]) {
 				showAlert(`Drive #${i} does not exist.`);
-				drives = null;
-			} 
-			drives.push(parts.storageDrives[name]);
+				buildValidity = false;
+				break;
+			} else {
+				drives.push(parts.storageDrives[name]);
+			}
 		}
 	});
+
 	var build = new Build(
 		form.motherboard.value,
 		form.cpu.value,
@@ -202,14 +223,15 @@ function getBuild() {
 		form.computerCase.value
 	);
 
-	if (!verifyParts(build.cpu, build.gpu, parts) || 
-		!verifyOtherParts(build.motherboard, build.dimms, build.computerCase, parts) ||
-		drives == null)
+	if (!buildValidity)
 		return null;
 	return build;
 }
 
 function calculateSpecs() {
+	var build = getBuild();
+	if (build === null) return;
+	
 	console.log(getBuild().drives);
 }
 
