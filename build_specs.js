@@ -190,15 +190,15 @@ class Build {
 function getBuild() {
 	const form = document.getElementById("form");
 	var drives = [];
-	var buildValidity = true;
+	var driveValidity = true;
 
-	promisedParts.then(parts => {
+	return promisedParts.then(parts => {
 		for (let i = 1; i <= parseInt(document.getElementById("storage-drives").getAttribute("data-drives")); i++) {
 			var name = document.getElementById(`storage-${i}`).value;
 			
 			if (!parts.storageDrives[name]) {
 				showAlert(`Drive #${i} does not exist.`);
-				buildValidity = false;
+				driveValidity = false;
 				break;
 			} else {
 				drives.push(parts.storageDrives[name]);
@@ -216,19 +216,20 @@ function getBuild() {
 			drives,
 			form.computerCase.value
 		);
-		
-		buildValidity = verifyParts(build.cpu, build.ramChannels, build.gpu, build.gpuCount, parts) 
-						&& verifyOtherParts(build.motherboard, build.dimms, build.computerCase, build.gpuCount, build.cpu, build.ramChannels, parts);
 
-		if (!buildValidity)
+		if (!driveValidity 
+			|| !verifyParts(build.cpu, build.ramChannels, build.gpu, build.gpuCount, parts) 
+			|| !verifyOtherParts(build.motherboard, build.dimms, build.computerCase, build.gpuCount, build.cpu, build.ramChannels, parts))
 			return null;
 		return build;
 	});
 }
 
 function calculateSpecs() {
-	var build = getBuild();
-	if (build === null) return;
+	getBuild().then(build => {
+		if (build === null) return;
+		console.log(build.drives);
+	});
 }
 
 window.onload = function() {
