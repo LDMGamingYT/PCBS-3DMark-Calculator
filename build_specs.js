@@ -138,11 +138,24 @@ async function loadSpecSheet(cpu, gpu, motherboard, memory, drives, computerCase
 	document.getElementById("cpuManufacturer").innerHTML = cpu.manufacturer;
 	document.getElementById("cpuSocket").innerHTML = cpu.cpuSocket;
 	document.getElementById("cpuFrequency").innerHTML = cpu.frequency + " MHz";
-	document.getElementById("cpuDefaultMemorySpeed").innerHTML = cpu.defaultMemorySpeed + " MHz";;
+	document.getElementById("cpuDefaultMemorySpeed").innerHTML = cpu.defaultMemorySpeed + " MHz";
 	document.getElementById("cpuMaxRamChannels").innerHTML = cpu.maxMemoryChannels;
 	document.getElementById("cpuWattage").innerHTML = cpu.wattage + " W";;
 	document.getElementById("cpuPriceNew").innerHTML = "$" + cpu.price;
 	document.getElementById("cpuPriceUsed").innerHTML = "$" + cpu.sellPrice;
+
+	// GPU
+	document.getElementById("gpuManufacturer").innerHTML = gpu.manufacturer;
+	document.getElementById("gpuChipset").innerHTML = gpu.chipset;
+	document.getElementById("gpuCooling").innerHTML = gpu.gpuType;
+	document.getElementById("gpuCoreClock").innerHTML = gpu.baseCoreClockFreq + " MHz";
+	document.getElementById("gpuMemClock").innerHTML = gpu.baseMemClockFreq + " MHz";
+	document.getElementById("gpuVram").innerHTML = gpu.vramGB + " GB";
+	document.getElementById("gpuSlotSize").innerHTML = gpu.slotSize + " Slots";
+	document.getElementById("gpuMultiGpu").innerHTML = gpu.multiGPU;
+	document.getElementById("gpuWattage").innerHTML = gpu.wattage + " W";
+	document.getElementById("gpuPriceNew").innerHTML = "$" + gpu.price;
+	document.getElementById("gpuPriceUsed").innerHTML = "$" + gpu.sellPrice;
 }
 
 /**
